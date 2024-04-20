@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickTrack</title>
+<link rel="stylesheet" href="css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="js/index.js"></script>
+</head>
+<body>
+
+<div class="header">
+    <div class="logo">QuickTrack</div>
+    <div class="buttons">
+        <button id="trackButton" class="button selected" onclick="toggleButton('trackBtn')">Track</button>
+        <button id="analyticsButton" class="button" onclick="toggleButton('analyticsBtn')">Analytics</button>
+    </div>
+  <!-- Script for button Track and Analytics(Shows the funtionality which page is selected by color change) -->
+	<script>
+  function toggleButton(btnId) {
+    var trackBtn = document.getElementById('trackButton');
+    var analyticsBtn = document.getElementById('analyticsButton');
+    
+    if (btnId === 'trackBtn') {
+      trackBtn.classList.add('selected');
+      analyticsBtn.classList.remove('selected');
+    } else if (btnId === 'analyticsBtn') {
+      analyticsBtn.classList.add('selected');
+      trackBtn.classList.remove('selected');
+    }
+  }
+</script>
+</div>
+
+<div class="container" id="trackSection">
+    <div class="form-group">
+        <label for="task">What are you working on?</label>
+        <input type="text" id="task">
+        <div class="error-message" id="taskError">Please enter a task</div>
+    </div>
+
+    <div class="timer">
+        <div>
+            <span id="timerDisplay">00:00:00</span>
+        </div>
+        <div>
+            <button id="startTimer">Start</button>
+            <button id="stopTimer" style="display: none;">Stop</button>
+        </div>
+    </div>
+
+    <h2>Running Task Details</h2>
+    <table id="runningTaskTable">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Start Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <h2>Completed Task Details</h2>
+    <table id="completedTaskTable">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Dummy Task 1</td>
+                <td>2024-04-17</td>
+                <td>07:30:00</td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Dummy Task 2</td>
+                <td>2024-04-18</td>
+                <td>05:15:00</td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+			<tr>
+                <td>Dummy Task 3</td>
+                <td>2024-04-19</td>
+                <td>08:30:00</td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+			<tr>
+                <td>Dummy Task 4</td>
+                <td>2024-04-20</td>
+                <td>06:30:00</td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container" id="analyticsSection" style="display: none;">
+    <h2>Weekly Time Spent</h2>
+    <canvas id="chartContainer"></canvas>
+</div>
+
+</body>
+</html>
