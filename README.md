@@ -13,4 +13,4 @@ QuickTrak is a simple web application that helps you track your work tasks and a
 1. Clone this repository:
 
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/udi07/quicktrack.git>
